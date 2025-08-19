@@ -1,0 +1,58 @@
+
+
+1)Hungarian algorithm Complexity explained
+Step 1: Row Reduction → O(n^2)
+
+You have an n×n cost matrix.
+For each row, you must find its minimum and subtract it from every entry in the row.
+Finding the min in a row: O(n).
+Subtracting across row: another O(n).
+n rows → O(n·n) = O(n^2).
+
+Step 2: Column Reduction → O(n^2)
+
+Exactly the same reasoning, but column-wise.
+For each column, find the minimum (O(n)) and subtract from all elements (O(n)).
+n columns → O(n^2).
+
+Step 3: Test for an Optimal Assignment → O(n^3)
+
+Here we try to cover all zeros with the minimum number of lines.
+This is essentially finding a maximum bipartite matching in a graph of size n.
+A bipartite matching problem can be solved in O(n^2) using augmenting paths (for each attempt).
+We may need up to n attempts (worst case) to assign all workers.
+So: n · O(n^2) = O(n^3).
+
+Step 4: Shift Zeros → O(n^3)
+
+If lines < n, we adjust the matrix:
+
+Find the smallest uncovered value (O(n^2), scanning the whole matrix).
+
+Subtract it from uncovered entries, add it at intersections of lines (O(n^2) again).
+
+This can happen multiple times.
+Worst case: up to n adjustments.
+So again: n · O(n^2) = O(n^3).
+
+Step 5: Making the Final Assignment → O(n)
+
+Once we have enough zeros (lines = n), we simply pick one zero in each row/column.
+That’s just n choices → O(n).
+
+Total Complexity
+
+The dominating terms are Step 3 and Step 4: both O(n^3).
+So the overall algorithm runs in O(n^3).
+
+Why this matters:
+
+The naive brute-force method (try all assignments) takes O(n!), which is impossible for large n.
+The Hungarian algorithm cuts this down to polynomial time O(n^3), which is practical even for large matrices (e.g. n = 1000).
+
+
+
+2)Edmonds algorithm
+
+https://www.youtube.com/watch?v=3roPs1Bvg1Q
+

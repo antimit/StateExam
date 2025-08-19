@@ -1,0 +1,2 @@
+3)Kritické grafy a jejich vlastnosti
+k-critical means the graph is just big and complex enough that it really forces you to use k colors, and if you remove even one piece of it, it suddenly becomes easier (needs fewer colors).

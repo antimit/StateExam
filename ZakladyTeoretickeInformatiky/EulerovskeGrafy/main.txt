@@ -1,0 +1,12 @@
+1)Definice eulerovského grafu
+
+2)Algoritmy pro hledání eulerovských tah˚u (algoritmus z dk Eulerovy vety, algoritmus Edmonds- ˇ
+Johnson)
+
+Edmonds-Johnson algorithm :https://www.youtube.com/watch?v=JCSmxUO0v3k&t=339s
+
+
+Hierholzer's algorithm: https://www.youtube.com/watch?v=8MpoO2zA2l4
+
+
+
