@@ -1,0 +1,42 @@
+
+
+
+2)Definice zásobníkového automatu (ZA), jazyk pˇrijímaný ZA
+For a fixed input string w, a PDA may follow many possible paths because it is nondeterministic.
+If at least one path consumes all of w and ends in acceptance (final state or empty stack),
+then M has an accepting computation on w and w is in L(M).
+
+
+
+3)Chomského normální forma BG: definice a metoda pˇrevodu gramatiky do CNF
+
+Definition:
+A context-free grammar is in CNF if every production is of one of the following forms:
+
+A → BC, where A, B, C are non-terminals and B, C are not the start symbol.
+
+A → a, where a is a terminal.
+
+S → ε, only allowed if the language includes the empty string (and only for the start symbol).
+
+Explanation:
+
+The right-hand side of every rule is either exactly two non-terminals or exactly one terminal.
+
+No other forms like A → BCD, A → aB, or A → ε (unless it is the start symbol).
+
+CNF is useful because it simplifies grammars into a standard form and is required for algorithms like CYK parsing.
+
+
+
+Conversion method (sketch):
+
+Remove ε-productions (A → ε), except possibly for the start symbol.
+
+Remove unit productions (A → B).
+
+Remove useless symbols (non-terminals that never lead to terminals).
+
+Convert the remaining rules into CNF form (A → BC or A → a).
+
+Every CFG can be converted into an equivalent CFG in CNF that generates the same language (except possibly ε).

@@ -1,0 +1,15 @@
+a) Definition:
+DFA is a 5-tuple (Q, Σ, δ, q0, F) where δ: Q × Σ → Q is total and deterministic (for each state and input symbol there is exactly one next state). No ε-moves allowed.
+
+b) Determinization algorithm:
+Convert NFA → DFA using subset construction: each DFA state = set of NFA states. Start = ε-closure of NFA start. For each symbol, compute reachable states. Final DFA states are those containing at least one NFA final state.
+
+c) Use:
+
+Text searching / regex engines
+
+Lexical analysis in compilers
+
+Network protocols, control systems
+
+Formal verification of sequences

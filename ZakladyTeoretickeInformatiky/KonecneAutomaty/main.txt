@@ -1,0 +1,44 @@
+1)Definition
+Finite automata are abstract machines used to recognize patterns in input sequences,
+forming the basis for understanding regular languages in computer science.
+They consist of states, transitions, and input symbols, processing each symbol step-by-step.
+If the machine ends in an accepting state after processing the input, it is accepted;
+otherwise, it is rejected.
+Finite automata come in deterministic (DFA) and non-deterministic (NFA),
+both of which can recognize the same set of regular languages.
+They are widely used in text processing, compilers, and network protocols.
+
+
+Formal Definition of Finite Automata
+A finite automaton can be defined as a tuple:
+
+{ Q, Σ, q, F, δ }, where:
+
+Q: Finite set of states
+Σ: Set of input symbols
+q: Initial state
+F: Set of final states
+δ: Transition function
+
+
+“The class Rec A* (also called REG) is the class of all regular languages, i.e. the languages that can be recognized by finite automata (DFA or NFA).”
+
+Regular languages (Rec A*) = patterns based on finite memory (suffixes, substrings, modulo counts, fixed lengths, regex).
+
+Non-regular = anything that needs infinite memory or counting (equal numbers, palindromes, nesting, primes).
+
+
+
+2) Operations on regular languages:
+
+You can find in the images in this folder
+
+Theorem1: The class of Regular Languages is closed under UNION
+Theorem2: The class of Regular Languages is closed under CONCATENATION
+
+
+3)Use of Finite Automata in Text Searching
+
+A finite automaton can be built for a search pattern. As the text is scanned, the automaton changes states. If it reaches a final state, the pattern is found. This principle is used in algorithms like KMP, in compilers, and in text-search tools (e.g., grep).
+
+(More info in the picture)

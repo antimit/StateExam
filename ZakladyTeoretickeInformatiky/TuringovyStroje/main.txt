@@ -1,0 +1,8 @@
+a) Definition:
+A Turing machine is defined as TM = (Q, Σ, Γ, δ, q0, qacc, qrej). It has an infinite tape, a head that can move left or right, and it can read, write, or erase symbols. A TM accepts a language if it eventually halts in the accepting state qacc. It can also compute functions by halting with the result written on the tape.
+
+b) Church–Turing Thesis:
+All functions that are effectively computable can be computed by a Turing machine. Turing machines are considered the general model of computation.
+
+c) Halting problem:
+The problem asks: given a Turing machine M and an input w, will M eventually halt or run forever? This problem is undecidable, meaning there is no algorithm that can solve it for all possible cases.
