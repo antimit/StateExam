@@ -1,0 +1,48 @@
+V C++ máš dvě možnosti:
+
+Stack → Person p; → objekt žije do konce scope.
+
+Heap → Person* p = new Person; → objekt žije, dokud ho ručně neuvolníš delete p;.
+
+p je jen ukazatel (adresa v paměti).
+
+Pokud zapomeneš delete, vznikne memory leak.
+
+Pokud zavoláš delete víckrát, dostaneš undefined behavior (může program spadnout).
+
+
+
+
+Java / C# / Python: automatická správa paměti
+
+Objekty se vždy vytvářejí na heapu (např. new Person() v Javě/C# nebo Person() v Pythonu).
+
+Proměnná (p) není objekt, ale reference (něco jako ukazatel, ale „bezpečný“).
+
+Paměť se nikdy neuvolňuje ručně – o to se stará garbage collector (GC), který detekuje, kdy už na objekt neexistuje žádná reference, a pak jej odstraní.
+
+
+
+C++
+Person p1;                     // stack
+Person* p2 = new Person();     // heap
+delete p2;                     // ruční uvolnění
+
+
+
+Java
+Person p1 = new Person();  // vždy heap
+p1 = null;                 // GC se o to postará
+
+
+
+Python
+p1 = Person("Alice", 25)  # vždy heap
+p1 = None                 # GC smaže objekt, až není reference
+
+
+C++ → máš plnou kontrolu: můžeš mít objekty na stacku (rychlé, automatické) nebo na heapu (flexibilní, ale musíš uvolnit ručně).
+
+Java/C#/Python → všechno je na heapu, nikdy nemažeš ručně, GC se stará o životní cyklus.
+
+Proto se říká, že C++ má hodnotovou sémantiku, zatímco Java, C#, Python mají referenční sémantiku pro objekty.

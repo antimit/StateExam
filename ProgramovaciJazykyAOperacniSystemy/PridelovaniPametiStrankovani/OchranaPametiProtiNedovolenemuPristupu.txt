@@ -1,0 +1,33 @@
+Explanation in context of the Intel 386:
+
+On the 80386 and later x86 processors, the CPU provides hardware support to make sure one process cannot access or modify memory that it is not allowed to. This is done through segmentation and paging features of the MMU.
+
+1. Segmentation protection
+
+Memory is divided into segments (code, data, stack, etc.).
+
+Each segment has base address, size limit, and access rights (read, write, execute, privilege level).
+
+The CPU checks every memory access against these rules.
+
+Example: user-mode code cannot execute instructions from a kernel segment.
+
+2. Paging protection
+
+Every page table entry includes protection bits:
+
+P (Present): whether the page is in memory.
+
+R/W (Read/Write): whether writing is allowed.
+
+U/S (User/Supervisor): whether the page can be accessed in user mode or only in kernel mode.
+
+If a process tries to read/write/execute memory without permission, the CPU raises a page fault exception, which the OS handles (usually by terminating the process).
+
+3. Privilege levels (rings)
+
+The 386 introduced 4 privilege levels (ring 0 = kernel, ring 3 = user).
+
+Instructions and memory access are restricted based on the current privilege ring.
+
+This prevents user programs from directly controlling hardware or overwriting kernel memory.

@@ -1,0 +1,17 @@
+On the Intel 80386 processor, paging is handled by the MMU (Memory Management Unit), which is a hardware component inside the CPU that translates virtual addresses into physical addresses. The CPU itself only issues virtual addresses, and the MMU performs the translation automatically.
+
+The reason paging is needed is that every process believes it has a continuous 4 GB address space (because addresses are 32 bits long), but physical RAM is usually much smaller. Paging allows the operating system to map parts of a process’s memory into RAM and store the rest temporarily on disk (swap or pagefile). This is what creates virtual memory.
+
+The 80386 uses a page size of 4 KB. This comes from the fact that the lowest 12 bits of any 32-bit address are used as an offset within a page. The remaining 20 bits identify which page is being used.
+
+To manage this translation, the 80386 implements a two-level system of page directories and page tables. A 32-bit virtual address is divided into three parts: the highest 10 bits select an entry in the page directory, the next 10 bits select an entry in the corresponding page table, and the lowest 12 bits are the offset inside the 4 KB page. With 1024 entries in the directory and 1024 entries per table, this structure can describe the entire 4 GB virtual space.
+
+The translation process works as follows: when the CPU generates a virtual address, the MMU splits it into directory, table, and offset. It then looks into the current page directory, whose base address is stored in the CR3 register. From there, it finds the correct page table, then the correct page frame in physical memory, and finally adds the offset to form the physical address. If a page is marked as “not present,” a page fault occurs, and the operating system loads the missing page from disk back into RAM.
+
+Each process has its own page directory, which means each process has its own independent virtual address space. When the operating system switches between processes, it updates CR3 to point to the new process’s page directory, and the MMU automatically starts using the correct mapping.
+
+One important detail is that page tables themselves must be located in physical RAM, because the MMU needs to read them in order to perform the translation. If a required part of the page table is missing, the operating system must bring it back before the translation can continue.
+
+In summary, the 80386 implements paging with 32-bit addresses by dividing virtual memory into 4 KB pages, using a two-level hierarchy of page directories and page tables. This allows every process to have its own 4 GB virtual address space, while the operating system and MMU handle the mapping to the limited physical RAM and to disk storage when needed.
+
+https://www.youtube.com/watch?v=pJ6qrCB8pDw

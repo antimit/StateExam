@@ -1,0 +1,31 @@
+Proces = instance běžícího programu v operačním systému.
+
+Obsahuje vše, co je potřeba k vykonávání programu:
+
+strojový kód (instrukce programu),
+
+paměť (data, zásobník, halda, globální proměnné),
+
+stav registrů CPU (včetně instrukčního čítače),
+
+systémové zdroje (otevřené soubory, sockety, signály, …).
+
+Jinými slovy: proces = „živý program“ (zatímco soubor .exe nebo .out na disku je jen mrtvý binární kód).
+
+
+
+Vytvoření
+
+OS vytvoří proces pomocí fork() (Linux/Unix) nebo CreateProcess() (Windows).
+
+Proces dostane PID (process ID).
+
+Běh
+
+CPU provádí instrukce programu.
+
+Ukončení
+
+Proces zavolá exit() nebo doběhne main().
+
+OS uvolní paměť a zdroje.

@@ -1,0 +1,9 @@
+Vlákno (thread) je nejmenší jednotka vykonávání programu, která běží uvnitř procesu.
+
+Jeden proces může obsahovat jedno nebo více vláken.
+
+Vlákna v rámci jednoho procesu sdílí:
+
+adresní prostor (paměť) – globální proměnné, haldu, otevřené soubory,
+
+ale mají vlastní zásobník (stack) a registr instrukcí (program counter).
