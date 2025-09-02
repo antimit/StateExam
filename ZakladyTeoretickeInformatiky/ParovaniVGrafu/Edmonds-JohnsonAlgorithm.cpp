@@ -164,7 +164,8 @@ vector<int> inPath;
                         b = parent[a];
                     }
                     return true;
-                } else {
+                } else 
+                {
                     // u is matched; grow tree by adding its mate as outer
                     int m = mate[u];
                     type[u] = 2;        // inner
